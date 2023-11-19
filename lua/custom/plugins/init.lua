@@ -239,13 +239,35 @@ return {
     },
   },
 
+  { -- NOTE: Session Manager
+    "Shatur/neovim-session-manager",
+  },
+
+  { -- NOTE: Lazy Git
+    "kdheepak/lazygit.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim"
+    },
+    config = function()
+      require("telescope").load_extension("lazygit")
+    end,
+  },
+
+  { -- NOTE: Aparencia do imput e seletor
+    "stevearc/dressing.nvim",
+  },
+
   { -- NOTE: Highliters NOTE TODO BUG
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {},
   },
 
-  { -- NOTE: Session Manager
-    "Shatur/neovim-session-manager",
+  { -- NOTE: Notificação
+    "rcarriga/nvim-notify",
+    opts = function()
+      vim.notify = require("notify")
+    end,
   },
 }
