@@ -29,6 +29,8 @@ local M = {
     mapN('k', "v:count == 0 ? 'gk' : 'k'", { expr = true, desc = "[K]ick cursor up" }),
     mapN('ç', 'l', { noremap = true, silent = true }), -- Set ç to movement
     mapN('l', 'h', { noremap = true, silent = true }), -- Set replace l to left
+    mapT('ç', 'l', { noremap = true, silent = true }), -- Set ç to movement in terminal
+    mapT('l', 'h', { noremap = true, silent = true }), -- Set replace l to left in terminal
     mapN('<Leader>a', '<cmd>w<cr>', { desc = '[W]rite' }),
     mapN('<Leader>c', '<cmd>bd<cr>', { desc = '[C]lose' }),
     mapN('<Leader>q', '<cmd>confirm q<cr>', { desc = '[Q]uit' }),
@@ -68,6 +70,7 @@ local M = {
     -- Git
     mapN(']g', '<cmd>:lua require("gitsigns").next_hunk()<cr>', { desc = 'Next Git hunk' }),
     mapN('[g', '<cmd>:lua require("gitsigns").prev_hunk()<cr>', { desc = 'Previous Git hunk' }),
+    mapN('<Leader>gg', '<cmd>:LazyGit<cr>', { desc = 'LazyGit' }),
     mapN('<Leader>gl', '<cmd>:lua require("gitsigns").blame_line()<cr>', { desc = 'View Git blame' }),
     mapN('<Leader>gL', '<cmd>:lua require("gitsigns").blame_line {full = true}<cr>', { desc = 'View full Git blame' }),
     mapN('<Leader>gl', '<cmd>:lua require("gitsigns").preview_hunk()<cr>', { desc = 'Preview Git hunk' }),
