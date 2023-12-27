@@ -239,9 +239,9 @@ return {
 		},
 	},
 
-	-- { -- NOTE: Session Manager
-	--   "Shatur/neovim-session-manager",
-	-- },
+	{ -- NOTE: Session Manager
+		"Shatur/neovim-session-manager",
+	},
 
 	{ -- NOTE: Lazy Git
 		"kdheepak/lazygit.nvim",
