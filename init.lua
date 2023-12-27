@@ -574,14 +574,23 @@ local servers = {
   -- pyright = {},
   -- rust_analyzer = {},
   -- tsserver = {},
-  -- html = { filetypes = { 'html', 'twig', 'hbs'} },
+  html = { filetypes = { 'html', 'twig', 'hbs' } },
 
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
       telemetry = { enable = false },
       -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-      -- diagnostics = { disable = { 'missing-fields' } },
+      diagnostics = { disable = { 'missing-fields' } },
+      format = {
+        enable = true,
+        -- Put format options here
+        -- NOTE: the value should be String!
+        defaultConfig = {
+          indent_style = "space",
+          indent_size = "1",
+        },
+      },
     },
   },
 }
@@ -598,7 +607,6 @@ local mason_lspconfig = require 'mason-lspconfig'
 
 mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
-me)
     require('lspconfig')[server_name].setup {
       capabilities = capabilities,
       on_attach = on_attach,
