@@ -425,6 +425,12 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 -- Defer Treesitter setup after first render to improve startup time of 'nvim {filename}'
 vim.defer_fn(function()
   require('nvim-treesitter.configs').setup {
+    -- Resolve parser problens
+    -- Use "curl" instead of git
+    -- Use "clang" compiler
+    prefer_git = false,
+    compilers = { "clang" },
+
     -- Add languages to be installed here that you want installed for treesitter
     ensure_installed = { 'c', 'cpp', 'lua', 'python', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash' },
 
@@ -674,5 +680,3 @@ cmp.setup {
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
-
-
