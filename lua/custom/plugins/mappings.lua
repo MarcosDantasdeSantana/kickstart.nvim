@@ -93,27 +93,5 @@ local M = {
   mapN('<leader>Sd', '<cmd>SessionManager! delete_session<cr>', { desc = 'Delete session' }),
   mapN('<leader>Sf', '<cmd>SessionManager! load_session<cr>', { desc = 'Search sessions' }),
   mapN('<leader>S.', '<cmd>SessionManager! load_current_dir_session<cr>', { desc = 'Load current directory session' }),
-
-  -- UI/UX
-  --  Custom menu for modification of the user experience
-  -- mapN('<Leader>ua', ui.toggle_autopairs, { desc = 'Toggle Autopairs' }),
-  -- mapN('<Leader>ub', ui.toggle_background, { desc = 'Toggle Background' }),
-  -- mapN('<Leader>uc', ui.toggle_cmp, { desc = 'Toggle Autocompletion' }),
-  -- mapN('<Leader>uC', '<cmd>ColorizerToggle<cr>', { desc = 'Toggle Color Highlight' }),
-  -- mapN('<Leader>ud', ui.toggle_diagnostics, { desc = 'Toggle Diagnostics' }),
-  -- mapN('<Leader>ug', ui.toggle_signcolumn, { desc = 'Toggle Signcolumn' }),
-  -- mapN('<Leader>ui', ui.set_indent, { desc = 'Change Indent Setting' }),
-  -- mapN('<Leader>ul', ui.toggle_statusline, { desc = 'Toggle StatusLine' }),
-  -- mapN('<Leader>uL', ui.toggle_codelens, { desc = 'Toggle CodeLens' }),
-  -- mapN('<Leader>un', ui.change_number, { desc = 'Change Line Numbering' }),
-  -- mapN('<Leader>uN', ui.toggle_ui_notifications, { desc = 'Toggle Notifications' }),
-  -- mapN('<Leader>up', ui.toggle_paste, { desc = 'Toggle Paste Mode' }),
-  -- mapN('<Leader>us', ui.toggle_spell, { desc = 'Toggle Spellcheck' }),
-  -- mapN('<Leader>uS', ui.toggle_conceal, { desc = 'Toggle Conceal' }),
-  -- mapN('<Leader>ut', ui.toggle_tabline, { desc = 'Toggle Tabline' }),
-  -- mapN('<Leader>uu', ui.toggle_url_match, { desc = 'Toggle URL Highlight' }),
-  -- mapN('<Leader>uw', ui.toggle_wrap, { desc = 'Toggle Wrap' }),
-  -- mapN('<Leader>uy', ui.toggle_syntax, { desc = 'Toggle Syntax Highlight' }),
-  -- mapN('<Leader>uh', ui.toggle_foldcolumn, { desc = 'Toggle Foldcolumn' }),
 }
 return M
