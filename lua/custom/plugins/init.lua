@@ -123,17 +123,6 @@ return {
     end,
   },
 
-
-  { -- NOTE: Fold look modern and keep high performance.
-    'kevinhwang91/nvim-ufo',
-    dependencies = 'kevinhwang91/promise-async',
-    opts = {
-      provider_selector = function(bufnr, filetype, buftype)
-        return { 'treesitter', 'indent' }
-      end,
-    },
-  },
-
   { -- NOTE: Arquivos
     'nvim-neo-tree/neo-tree.nvim',
     branch = 'v3.x',
@@ -292,18 +281,20 @@ return {
 
   { -- NOTE: Aparencia do imput e seletor
     'stevearc/dressing.nvim',
+  { -- NOTE: Fold Moderno e Rapido.
+    'kevinhwang91/nvim-ufo',
+    dependencies = 'kevinhwang91/promise-async',
+    opts = {
+      provider_selector = function(bufnr, filetype, buftype)
+        return { 'treesitter', 'indent' }
+      end,
+    },
+  },
   },
 
   { -- NOTE: Highliters NOTE TODO BUG
     'folke/todo-comments.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = {},
-  },
-
-  { -- NOTE: Notificação
-    'rcarriga/nvim-notify',
-    opts = function()
-      vim.notify = require 'notify'
-    end,
   },
 }
