@@ -58,17 +58,17 @@ local M = {
   mapV('<leader>#', "<esc><cmd>:lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>", { desc = 'Toggle comment for selection' }),
 
   -- Git
-  mapN(']g', '<cmd>:lua require("gitsigns").next_hunk()<cr>', { desc = 'Next Git hunk' }),
-  mapN('[g', '<cmd>:lua require("gitsigns").prev_hunk()<cr>', { desc = 'Previous Git hunk' }),
-  mapN('<Leader>gl', '<cmd>:lua require("gitsigns").blame_line()<cr>', { desc = 'View Git blame' }),
-  mapN('<Leader>gL', '<cmd>:lua require("gitsigns").blame_line {full = true}<cr>', { desc = 'View full Git blame' }),
-  mapN('<Leader>gl', '<cmd>:lua require("gitsigns").preview_hunk()<cr>', { desc = 'Preview Git hunk' }),
-  mapN('<Leader>gh', '<cmd>:lua require("gitsigns").reset_hunk()<cr>', { desc = 'Reset Git hunk' }),
-  mapN('<Leader>gr', '<cmd>:lua require("gitsigns").reset_buffer()<cr>', { desc = 'Reset Git buffer' }),
-  mapN('<Leader>gs', '<cmd>:lua require("gitsigns").stage_hunk()<cr>', { desc = 'Stage Git hunk' }),
-  mapN('<Leader>gS', '<cmd>:lua require("gitsigns").stage_buffer()<cr>', { desc = 'Stage Git buffer' }),
-  mapN('<Leader>gu', '<cmd>:lua require("gitsigns").undo_stage_hunk()<cr>', { desc = 'Unstage Git hunk' }),
-  mapN('<Leader>gd', '<cmd>:lua require("gitsigns").diffthis()<cr>', { desc = 'View Git diff' }),
+  mapN(']g', '<cmd>:lua require("gitsigns").next_hunk()<cr>', { desc = 'Next [G]it hunk' }),
+  mapN('[g', '<cmd>:lua require("gitsigns").prev_hunk()<cr>', { desc = 'Previous [G]it hunk' }),
+  -- mapN('<Leader>gl', '<cmd>:lua require("gitsigns").blame_line()<cr>', { desc = 'View Git blame' }),
+  mapN('<Leader>gB', '<cmd>:lua require("gitsigns").blame_line {full = true}<cr>', { desc = '[G]it [B]lame full' }),
+  mapN('<Leader>gp', '<cmd>:lua require("gitsigns").preview_hunk()<cr>', { desc = '[G]it hunk [p]review' }),
+  mapN('<Leader>gh', '<cmd>:lua require("gitsigns").reset_hunk()<cr>', { desc = '[G]it [h]unk Reset' }),
+  mapN('<Leader>gr', '<cmd>:lua require("gitsigns").reset_buffer()<cr>', { desc = '[G]it buffer [r]eset' }),
+  mapN('<Leader>gs', '<cmd>:lua require("gitsigns").stage_hunk()<cr>', { desc = '[G]it hunk [s]tage' }),
+  mapN('<Leader>gS', '<cmd>:lua require("gitsigns").stage_buffer()<cr>', { desc = 'Git buffer [S]tage' }),
+  mapN('<Leader>gu', '<cmd>:lua require("gitsigns").undo_stage_hunk()<cr>', { desc = '[G]it hunk [u]nstage' }),
+  mapN('<Leader>gd', '<cmd>:lua require("gitsigns").diffthis()<cr>', { desc = 'View [G]it [d]iff' }),
 
   -- NeoTree
   mapN('<leader>e', '<cmd>Neotree toggle<cr>', { desc = 'Toggle [E]xplorer' }),
