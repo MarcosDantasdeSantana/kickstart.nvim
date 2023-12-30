@@ -11,15 +11,15 @@
 --   t = { desc = get_icon("Terminal", 1, true) .. "Terminal" },
 -- }
 
-function mapN(atalho, comando, opcoes)
+local function mapN(atalho, comando, opcoes)
   vim.api.nvim_set_keymap('n', atalho, comando, opcoes)
 end
 
-function mapV(atalho, comando, opcoes)
+local function mapV(atalho, comando, opcoes)
   vim.api.nvim_set_keymap('v', atalho, comando, opcoes)
 end
 
-function mapT(atalho, comando, opcoes)
+local function mapT(atalho, comando, opcoes)
   vim.api.nvim_set_keymap('t', atalho, comando, opcoes)
 end
 
