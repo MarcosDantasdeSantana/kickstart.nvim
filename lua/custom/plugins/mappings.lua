@@ -39,28 +39,24 @@ local M = {
   mapN('\\', '<cmd>split<cr>', { desc = '[\\] Quebra Horizontal' }),
 
   -- Procurar arquivos
-  mapN('<Leader><Tab>', [[<Cmd>Explore<CR>]], { noremap = true, silent = true, desc = 'Arquivos' }),
+  -- mapN('<Leader>f', [[<Cmd>Explore<CR>]], { noremap = true, silent = true, desc = 'Arquivos' }),
 
   -- Plugin Manager
   mapN('<Leader>pi', '<cmd>:lua require("lazy").install()<cr>', { desc = '[P]lugins [I]nstall' }),
   mapN('<Leader>ph', '<cmd>:lua require("lazy").home()<cr>', { desc = '[P]lugins [H]ome' }),
   mapN('<Leader>ps', '<cmd>:lua require("lazy").sync()<cr>', { desc = '[P]lugins [S]ync' }),
-  mapN('<Leader>ps', '<cmd>:lua require("lazy").home()<cr>', { desc = '[P]lugins [H]ome' }),
   mapN('<Leader>pc', '<cmd>:lua require("lazy").check()<cr>', { desc = '[P]lugins [C]heck Update' }),
   mapN('<Leader>pu', '<cmd>:lua require("lazy").update()<cr>', { desc = '[P]lugins [U]pdate' }),
-
-  -- Tabs
-  mapN(']t', '<cmd>tabnext<cr>', { desc = 'Next Tab' }),
-  mapN('[t', '<cmd>tabprevious<cr>', { desc = 'Previous tab' }),
 
   -- Comments
   mapN('<leader>#', '<cmd>:lua require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1)<cr>', { desc = 'Toggle comment line' }),
   mapV('<leader>#', "<esc><cmd>:lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>", { desc = 'Toggle comment for selection' }),
 
   -- Git
+  mapN('<Leader>gl', '<cmd>:LazyGit<cr>', { desc = '[G]it [L]azy' }),
   mapN(']g', '<cmd>:lua require("gitsigns").next_hunk()<cr>', { desc = 'Next [G]it hunk' }),
   mapN('[g', '<cmd>:lua require("gitsigns").prev_hunk()<cr>', { desc = 'Previous [G]it hunk' }),
-  -- mapN('<Leader>gl', '<cmd>:lua require("gitsigns").blame_line()<cr>', { desc = 'View Git blame' }),
+  -- mapN('<Leader>gb', '<cmd>:lua require("gitsigns").blame_line()<cr>', { desc = 'View Git blame' }),
   mapN('<Leader>gB', '<cmd>:lua require("gitsigns").blame_line {full = true}<cr>', { desc = '[G]it [B]lame full' }),
   mapN('<Leader>gp', '<cmd>:lua require("gitsigns").preview_hunk()<cr>', { desc = '[G]it hunk [p]review' }),
   mapN('<Leader>gh', '<cmd>:lua require("gitsigns").reset_hunk()<cr>', { desc = '[G]it [h]unk Reset' }),
@@ -71,7 +67,8 @@ local M = {
   mapN('<Leader>gd', '<cmd>:lua require("gitsigns").diffthis()<cr>', { desc = 'View [G]it [d]iff' }),
 
   -- NeoTree
-  mapN('<leader>e', '<cmd>Neotree toggle<cr>', { desc = 'Toggle [E]xplorer' }),
+  mapN('<leader>e', '<cmd>Neotree toggle right<cr>', { desc = 'Toggle [E]xplorer' }),
+  mapN('<Leader><Tab>', '<cmd>Neotree toggle float<cr>', { desc = 'Toogle Float Explorer' }),
   mapN(
     '<leader>o',
     '<cmd>:lua if vim.bo.filetype == "neo-tree" then vim.cmd.wincmd "p" else vim.cmd.Neotree "focus" end <cr>',
@@ -80,18 +77,18 @@ local M = {
 
   -- Package Manager
   mapN('<Leader>pm', '<cmd>Mason<cr>', { desc = '[M]ason Installer' }),
-  mapN('<Leader>pM', '<cmd>MasonUpdateAll<cr>', { desc = '[M]ason Update' }),
+  mapN('<Leader>pM', '<cmd>MasonUpdate<cr>', { desc = '[M]ason Update' }),
 
   -- Terminal
   mapN('<Leader>tf', '<cmd>ToggleTerm direction=float<cr>', { desc = '[T]oggleTerm [F]loat' }),
   mapN('<Leader>th', '<cmd>ToggleTerm size=10 direction=horizontal<cr>', { desc = '[T]oggleTerm [H]orizontal Split' }),
-  mapN('<Leader>tv', '<cmd>ToggleTerm size=80 direction=vertical<cr>', { desc = '[T]oggleTerm [V]ertical Split' }),
+  mapN('<Leader>tv', '<cmd>ToggleTerm size=60 direction=vertical<cr>', { desc = '[T]oggleTerm [V]ertical Split' }),
 
   -- Session Manager
-  mapN('<leader>Sl', '<cmd>SessionManager! load_last_session<cr>', { desc = 'Load last session' }),
-  mapN('<leader>Ss', '<cmd>SessionManager! save_current_session<cr>', { desc = 'Save this session' }),
-  mapN('<leader>Sd', '<cmd>SessionManager! delete_session<cr>', { desc = 'Delete session' }),
-  mapN('<leader>Sf', '<cmd>SessionManager! load_session<cr>', { desc = 'Search sessions' }),
-  mapN('<leader>S.', '<cmd>SessionManager! load_current_dir_session<cr>', { desc = 'Load current directory session' }),
+  mapN('<leader>Sl', '<cmd>SessionManager! load_last_session<cr>', { desc = '[S]ession [l]oad last' }),
+  mapN('<leader>Ss', '<cmd>SessionManager! save_current_session<cr>', { desc = '[S]ession [s]ave' }),
+  mapN('<leader>Sd', '<cmd>SessionManager! delete_session<cr>', { desc = '[S]essions [d]elet' }),
+  mapN('<leader>Sf', '<cmd>SessionManager! load_session<cr>', { desc = '[S]essions [f]ind' }),
+  mapN('<leader>Sc', '<cmd>SessionManager! load_current_dir_session<cr>', { desc = '[S]ession Load [c]urrent' }),
 }
 return M
