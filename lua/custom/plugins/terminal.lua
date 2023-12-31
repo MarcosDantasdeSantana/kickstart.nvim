@@ -1,6 +1,5 @@
 return { -- NOTE: Terminal
   'akinsho/toggleterm.nvim',
-  event = 'VeryLazy',
   version = '*',
   opts = {
     size = 10,
