@@ -23,12 +23,12 @@ return { -- NOTE: Formater: Conform.nvim
         timeout_ms = 1000,
       },
     }
-    -- vim.keymap.set({ 'n', 'v' }, '<C-s>', function()
-    --   conform.format {
-    --     lsp_fallback = true,
-    --     async = false,
-    --     timeout_ms = 1000,
-    --   }
-    -- end, { desc = 'Format File' })
+    vim.keymap.set({ 'n', 'v' }, '<leader>df', function()
+      conform.format {
+        lsp_fallback = true,
+        async = false,
+        timeout_ms = 1000,
+      }
+    end, { desc = '[F]ormat File' })
   end,
 }
