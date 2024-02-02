@@ -27,7 +27,7 @@ local handler = function(virtText, lnum, endLnum, width, truncate)
 end
 
 vim.o.foldcolumn = '0' -- '0' is not bad
-vim.o.foldlevel = 10 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevel = 10   -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart = 5
 vim.o.foldenable = true
 
@@ -41,3 +41,4 @@ return { -- NOTE: Fold Moderno e Rapido.
     end,
   },
 }
+

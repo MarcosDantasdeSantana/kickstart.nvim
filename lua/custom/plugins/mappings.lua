@@ -67,8 +67,8 @@ local M = {
   mapN('<Leader>gd', '<cmd>:lua require("gitsigns").diffthis()<cr>', { desc = 'View [G]it [d]iff' }),
 
   -- NeoTree
-  mapN('<leader>e', '<cmd>Neotree toggle right<cr>', { desc = 'Toggle [E]xplorer' }),
-  mapN('<Leader><Tab>', '<cmd>Neotree toggle float<cr>', { desc = 'Toogle Float Explorer' }),
+  mapN('<leader><Tab>', '<cmd>Neotree toggle right<cr>', { desc = 'Toggle Explorer' }),
+  mapN('<Leader>e', '<cmd>Neotree toggle float<cr>', { desc = 'Toogle Float [E]xplorer' }),
   mapN(
     '<leader>o',
     '<cmd>:lua if vim.bo.filetype == "neo-tree" then vim.cmd.wincmd "p" else vim.cmd.Neotree "focus" end <cr>',
