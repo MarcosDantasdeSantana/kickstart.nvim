@@ -106,6 +106,7 @@ require('lazy').setup({
       -- Adds LSP completion capabilities
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
+      'hrsh7th/cmp-buffer',
 
       -- Adds a number of user-friendly snippets
       'rafamadriz/friendly-snippets',
@@ -565,7 +566,7 @@ require('which-key').register({
   ['<leader>'] = { name = 'VISUAL <leader>' },
   ['<leader>h'] = { 'Git [H]unk' },
 }, { mode = 'v' })
-require 'custom.plugins.mappings'
+require('custom.plugins.mappings')
 
 -- mason-lspconfig requires that these setup functions are called in this order
 -- before setting up the servers.
@@ -634,6 +635,7 @@ mason_lspconfig.setup_handlers {
   end,
 }
 
+
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
 local cmp = require 'cmp'
@@ -647,12 +649,59 @@ cmp.setup {
       luasnip.lsp_expand(args.body)
     end,
   },
+  -- Border
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
+  },
+  -- Icons
+  formatting = {
+    format = function(entry, vim_item)
+      -- cmp icons
+      local cmp_kinds = {
+        Text = '  ',
+        Method = '  ',
+        Function = '  ',
+        Constructor = '  ',
+        Field = '  ',
+        Variable = '  ',
+        Class = '  ',
+        Interface = '  ',
+        Module = '  ',
+        Property = '  ',
+        Unit = '  ',
+        Value = '  ',
+        Enum = '  ',
+        Keyword = '  ',
+        Snippet = '  ',
+        Color = '  ',
+        File = '  ',
+        Reference = '  ',
+        Folder = '  ',
+        EnumMember = '  ',
+        Constant = '  ',
+        Struct = '  ',
+        Event = '  ',
+        Operator = '  ',
+        TypeParameter = '  ',
+      }
+      vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. "(" .. string.sub(vim_item.kind, 0, 3) .. ")"
+      vim_item.menu = ({
+        buffer = "[Buf]",
+        nvim_lsp = "[LSP]",
+        luasnip = "[LSnip]",
+        nvim_lua = "[Lua]",
+        latex_symbols = "[LTX]",
+      })[entry.source.name]
+      return vim_item
+    end,
+  },
   completion = {
     completeopt = 'menu,menuone,noinsert',
   },
   mapping = cmp.mapping.preset.insert {
-    ['<C-n>'] = cmp.mapping.select_next_item(),
-    ['<C-p>'] = cmp.mapping.select_prev_item(),
+    ['<C-j>'] = cmp.mapping.select_next_item(),
+    ['<C-k>'] = cmp.mapping.select_prev_item(),
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete {},
@@ -683,6 +732,7 @@ cmp.setup {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
     { name = 'path' },
+    { name = 'buffer' },
   },
 }
 
