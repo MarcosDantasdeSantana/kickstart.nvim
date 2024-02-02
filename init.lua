@@ -566,7 +566,7 @@ require('which-key').register({
   ['<leader>'] = { name = 'VISUAL <leader>' },
   ['<leader>h'] = { 'Git [H]unk' },
 }, { mode = 'v' })
-require 'custom.plugins.mappings'
+require('custom.plugins.mappings')
 
 -- mason-lspconfig requires that these setup functions are called in this order
 -- before setting up the servers.
@@ -651,7 +651,6 @@ cmp.setup({
   },
   -- Border
   window = {
-    max_height = 15,
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),
   },
