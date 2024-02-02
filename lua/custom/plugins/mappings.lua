@@ -70,13 +70,13 @@ local M = {
   nmap('<Leader>gd', '<cmd>:lua require("gitsigns").diffthis()<cr>', { desc = 'View [G]it [d]iff' }),
 
   -- NeoTree
-  -- nmap('<leader><Tab>', '<cmd>Neotree toggle right<cr>', { desc = 'Toggle Explorer' }),
-  nmap('<Leader>e', '<cmd>Neotree toggle float<cr>', { desc = 'Toogle Float [E]xplorer' }),
-  -- nmap(
-  --   '<leader>o',
-  --   '<cmd>:lua if vim.bo.filetype == "neo-tree" then vim.cmd.wincmd "p" else vim.cmd.Neotree "focus" end <cr>',
-  --   { desc = 'Toggle Explorer Focus' }
-  -- ),
+  mapN('<leader><Tab>', '<cmd>Neotree toggle right<cr>', { desc = 'Toggle Explorer' }),
+  mapN('<Leader>e', '<cmd>Neotree toggle float<cr>', { desc = 'Toogle Float [E]xplorer' }),
+  mapN(
+    '<leader>o',
+    '<cmd>:lua if vim.bo.filetype == "neo-tree" then vim.cmd.wincmd "p" else vim.cmd.Neotree "focus" end <cr>',
+    { desc = 'Toggle Explorer Focus' }
+  ),
 
   -- Package Manager
   nmap('<Leader>pm', '<cmd>Mason<cr>', { desc = '[M]ason Installer' }),
