@@ -5,6 +5,6 @@ return { -- NOTE: Lazy Git
     'nvim-lua/plenary.nvim',
   },
   config = function()
-    require('telescope').load_extension 'lazygit'
+    require('telescope').load_extension('lazygit')
   end,
 }
