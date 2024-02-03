@@ -643,7 +643,7 @@ local luasnip = require 'luasnip'
 require('luasnip.loaders.from_vscode').lazy_load()
 luasnip.config.setup {}
 
-cmp.setup {
+cmp.setup({
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -651,6 +651,7 @@ cmp.setup {
   },
   -- Border
   window = {
+    max_height = 15,
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),
   },
@@ -734,7 +735,7 @@ cmp.setup {
     { name = 'path' },
     { name = 'buffer' },
   },
-}
+})
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
