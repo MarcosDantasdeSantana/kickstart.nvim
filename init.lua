@@ -209,7 +209,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'catppuccin',
+        theme = 'auto',
         component_separators = '|',
         section_separators = '',
       },
@@ -443,7 +443,12 @@ vim.defer_fn(function()
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
     auto_install = true,
-
+    -- Install languages synchronously (only applied to `ensure_installed`)
+    sync_install = false,
+    -- List of parsers to ignore installing
+    ignore_install = {},
+    -- You can specify additional Treesitter modules here: -- For example: -- playground = {--enable = true,-- },
+    modules = {},
     highlight = { enable = true },
     indent = { enable = true },
     incremental_selection = {
@@ -520,7 +525,9 @@ local on_attach = function(_, bufnr)
   end
 
   nmap('<learer>dr', vim.lsp.buf.rename, '[R]ename')
-  nmap('<leader>da', vim.lsp.buf.code_action, 'Code [A]ction')
+  nmap('<leader>da', function()
+    vim.lsp.buf.code_action { context = { only = { 'quickfix', 'refactor', 'source' } } }
+  end, '[C]ode [A]ction')
 
   nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
