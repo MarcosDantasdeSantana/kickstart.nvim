@@ -33,6 +33,7 @@ vim.o.foldenable = true
 
 return { -- NOTE: Fold Moderno e Rapido.
   'kevinhwang91/nvim-ufo',
+  event = 'BufEnter',
   dependencies = 'kevinhwang91/promise-async',
   opts = {
     fold_virt_text_handler = handler,
@@ -41,4 +42,3 @@ return { -- NOTE: Fold Moderno e Rapido.
     end,
   },
 }
-
