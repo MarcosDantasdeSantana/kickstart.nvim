@@ -693,13 +693,13 @@ cmp.setup({
         Operator = '  ',
         TypeParameter = '  ',
       }
-      vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. "(" .. string.sub(vim_item.kind, 0, 3) .. ")"
+      vim_item.kind = (cmp_kinds[vim_item.kind] or '') .. '(' .. string.sub(vim_item.kind, 0, 3) .. ')'
       vim_item.menu = ({
-        buffer = "[Buf]",
-        nvim_lsp = "[LSP]",
-        luasnip = "[LSnip]",
-        nvim_lua = "[Lua]",
-        latex_symbols = "[LTX]",
+        buffer = '[Buf]',
+        nvim_lsp = '[LSP]',
+        luasnip = '[LSnip]',
+        nvim_lua = '[Lua]',
+        latex_symbols = '[LTX]',
       })[entry.source.name]
       return vim_item
     end,
