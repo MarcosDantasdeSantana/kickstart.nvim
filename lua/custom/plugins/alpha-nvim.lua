@@ -1,8 +1,11 @@
 return { -- NOTE: Menu inicial
   'goolord/alpha-nvim',
   event = 'VimEnter',
-  dependencies = { 'nvim-tree/nvim-web-devicons' },
+  dependencies = {
+    'nvim-tree/nvim-web-devicons',
+    'nvim-lua/plenary.nvim',
+  },
   config = function()
-    require('alpha').setup(require('alpha.themes.startify').config)
+    require('alpha').setup(require('alpha.themes.dashboard').config)
   end,
 }

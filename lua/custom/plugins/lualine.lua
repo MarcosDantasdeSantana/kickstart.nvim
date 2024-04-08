@@ -6,7 +6,6 @@ return { -- NOTE: Edit statusline
   opts = {
     options = {
       icons_enabled = true,
-      theme = 'catppuccin',
     },
   },
 }
