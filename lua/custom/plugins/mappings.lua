@@ -1,16 +1,3 @@
--- local sections = {
---   f = { desc = get_icon("Search", 1, true) .. "Find" },
---   p = { desc = get_icon("Package", 1, true) .. "Packages" },
---  l = { desc = get_icon("ActiveLSP", 1, true) .. "LSP" },
---   u = { desc = get_icon("Window", 1, true) .. "UI/UX" },
---   b = { desc = get_icon("Tab", 1, true) .. "Buffers" },
---   bs = { desc = get_icon("Sort", 1, true) .. "Sort Buffers" },
---   d = { desc = get_icon("Debugger", 1, true) .. "Debugger" },
---   g = { desc = get_icon("Git", 1, true) .. "Git" },
---   S = { desc = get_icon("Session", 1, true) .. "Session" },
---   t = { desc = get_icon("Terminal", 1, true) .. "Terminal" },
--- }
-
 local function nmap(atalho, comando, opcoes)
   vim.api.nvim_set_keymap('n', atalho, comando, opcoes)
 end
@@ -29,17 +16,18 @@ local M = {
   nmap('k', "v:count == 0 ? 'gk' : 'k'", { expr = true, desc = '[K]ick cursor up' }),
   nmap('ç', 'l', { noremap = true, silent = true }), -- Set ç to movement
   nmap('l', 'h', { noremap = true, silent = true }), -- Set replace l to left
+  vmap('ç', 'l', { noremap = true, silent = true }), -- Set ç to movement
+  vmap('l', 'h', { noremap = true, silent = true }), -- Set replace l to left
   nmap('<Leader>a', '<cmd>w<cr>', { desc = '[W]rite' }),
-  nmap('<Leader>c', '<cmd>bd<cr>', { desc = '[C]lose' }),
+  nmap('<Leader>dc', '<cmd>bd<cr>', { desc = '[C]lose Document' }),
   nmap('<Leader>q', '<cmd>confirm q<cr>', { desc = '[Q]uit' }),
   nmap('<Leader>n', '<cmd>enew<cr>', { desc = '[N]ew File' }),
   nmap('<C-s>', '<cmd>w!<cr>', { desc = 'Force Write' }),
   nmap('<C-q>', '<cmd>qa!<cr>', { desc = 'Force [Q]uit' }),
   nmap('|', '<cmd>vsplit<cr>', { desc = '[|] Quebra Vertical' }),
   nmap('\\', '<cmd>split<cr>', { desc = '[\\] Quebra Horizontal' }),
-
-  -- Procurar arquivos
-  -- nmap('<Leader>f', [[<Cmd>Explore<CR>]], { noremap = true, silent = true, desc = 'Arquivos' }),
+  nmap('<Tab>', '<cmd>BufferNext<cr>', { desc = 'Buffer [N]ext' }),
+  nmap('<S-Tab>', '<cmd>BufferPrevious<cr>', { desc = 'Buffer [P]revious' }),
 
   -- Plugin Manager
   nmap('<Leader>pi', '<cmd>:lua require("lazy").install()<cr>', { desc = '[P]lugins [I]nstall' }),
@@ -48,18 +36,11 @@ local M = {
   nmap('<Leader>pc', '<cmd>:lua require("lazy").check()<cr>', { desc = '[P]lugins [C]heck Update' }),
   nmap('<Leader>pu', '<cmd>:lua require("lazy").update()<cr>', { desc = '[P]lugins [U]pdate' }),
 
-  -- Comments
-  nmap('<leader>#', '<cmd>:lua require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1)<cr>',
-    { desc = 'Toggle comment line' }),
-  vmap
-  ('<leader>#', "<esc><cmd>:lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
-    { desc = 'Toggle comment for selection' }),
-
   -- Git
   nmap('<Leader>gl', '<cmd>:LazyGit<cr>', { desc = '[G]it [L]azy' }),
   nmap(']g', '<cmd>:lua require("gitsigns").next_hunk()<cr>', { desc = 'Next [G]it hunk' }),
   nmap('[g', '<cmd>:lua require("gitsigns").prev_hunk()<cr>', { desc = 'Previous [G]it hunk' }),
-  -- nmap('<Leader>gb', '<cmd>:lua require("gitsigns").blame_line()<cr>', { desc = 'View Git blame' }),
+  nmap('<Leader>gb', '<cmd>:lua require("gitsigns").blame_line()<cr>', { desc = 'View Git blame' }),
   nmap('<Leader>gB', '<cmd>:lua require("gitsigns").blame_line {full = true}<cr>', { desc = '[G]it [B]lame full' }),
   nmap('<Leader>gp', '<cmd>:lua require("gitsigns").preview_hunk()<cr>', { desc = '[G]it hunk [p]review' }),
   nmap('<Leader>gh', '<cmd>:lua require("gitsigns").reset_hunk()<cr>', { desc = '[G]it [h]unk Reset' }),
@@ -70,7 +51,6 @@ local M = {
   nmap('<Leader>gd', '<cmd>:lua require("gitsigns").diffthis()<cr>', { desc = 'View [G]it [d]iff' }),
 
   -- NeoTree
-  -- nmap('<leader><Tab>', '<cmd>Neotree toggle right<cr>', { desc = 'Toggle Explorer' }),
   nmap('<Leader>ee', '<cmd>Neotree toggle<cr>', { desc = 'Toogle [E]xplorer' }),
   nmap('<Leader>er', '<cmd>Neotree reveal<cr>', { desc = '[R]eveal File' }),
 
