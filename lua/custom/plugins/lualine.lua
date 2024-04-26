@@ -5,6 +5,7 @@ return { -- NOTE: Edit statusline
   -- See `:help lualine.txt`
   opts = {
     options = {
+      theme = 'catppuccin',
       icons_enabled = true,
     },
   },
