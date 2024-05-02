@@ -701,6 +701,34 @@ require('lazy').setup({
       local luasnip = require 'luasnip'
       luasnip.config.setup {}
 
+      local icons = {
+        Text = '󰉿',
+        Method = '󰆧',
+        Function = '󰊕',
+        Constructor = '',
+        Field = '󰜢',
+        Variable = '󰀫',
+        Class = '󰠱',
+        Interface = '',
+        Module = '',
+        Property = '󰜢',
+        Unit = '󰑭',
+        Value = '󰎠',
+        Enum = '',
+        Keyword = '󰌋',
+        Snippet = '',
+        Color = '󰏘',
+        File = '󰈙',
+        Reference = '󰈇',
+        Folder = '󰉋',
+        EnumMember = '',
+        Constant = '󰏿',
+        Struct = '󰙅',
+        Event = '',
+        Operator = '󰆕',
+        TypeParameter = '',
+      }
+
       cmp.setup {
         snippet = {
           expand = function(args)
@@ -760,6 +788,21 @@ require('lazy').setup({
           { name = 'luasnip' },
           { name = 'path' },
           { name = 'buffer' },
+        },
+        formatting = {
+          format = function(entry, vim_item)
+            -- Kind icons
+            vim_item.kind = string.format('%s (%s)', icons[vim_item.kind], string.sub(vim_item.kind, 1, 4)) -- This concatenates the icons with the name of the item kind
+            -- Source
+            vim_item.menu = ({
+              buffer = '[Buf]',
+              nvim_lsp = '[LSP]',
+              luasnip = '[LSni]',
+              latex_symbols = '[LTX]',
+              path = '[Path]',
+            })[entry.source.name]
+            return vim_item
+          end,
         },
       }
     end,
